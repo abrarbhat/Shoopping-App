@@ -23,10 +23,13 @@
               "src/assets"
             ],
             "styles": [
-              "../shoppingApp/node_modules/bootstrap/dist/css/bootstrap.css",
+              "../Shoopping-App/node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
             ],
-            "scripts": ["../shoppingApp/node_modules/bootstrap/dist/js/bootstrap.js"]
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              ]
           },
           "configurations": {
             "production": {
