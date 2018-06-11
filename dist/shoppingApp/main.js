@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n\n      <app-recipes></app-recipes>\n      <app-shopping-list></app-shopping-list>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<app-header></app-header>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n\r\n      <app-recipes></app-recipes>\r\n      <app-shopping-list></app-shopping-list>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -152,7 +152,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\n<div class=\"container-fluid\">\n<div class=\"navbar-header\">\n    <a href=\"#\" class=\"navbar-brand\">Recipe Book</a>\n</div>\n<div class=\"collapse navbar-collapse\">\n    <ul class=\"nav navbar-nav\">\n        <li><a href=\"#\">Recipes</a></li>\n        <li><a href=\"#\">Shopping List</a></li>\n    </ul>\n    <ul class=\"nav navbar-nav navbar-right\">\n        <li class=\"dropdown\">\n            <a href=\"#\" class=\"dropdown-toggle\" role=\"button\">Manage <span class=\"caret\"></span> </a>\n            <ul class=\"dropdown-menu\">\n                <li><a href=\"#\">Save Data</a></li>\n                <li><a href=\"#\">Fetch Data</a></li>\n            </ul>\n        </li>\n    </ul>\n</div>\n</div>\n</nav>\n\n"
+module.exports = "<nav class=\"navbar navbar-default\">\r\n<div class=\"container-fluid\">\r\n<div class=\"navbar-header\">\r\n    <a href=\"#\" class=\"navbar-brand\">Recipe Book</a>\r\n</div>\r\n<div class=\"collapse navbar-collapse\">\r\n    <ul class=\"nav navbar-nav\">\r\n        <li><a href=\"#\">Recipes</a></li>\r\n        <li><a href=\"#\">Shopping List</a></li>\r\n    </ul>\r\n    <ul class=\"nav navbar-nav navbar-right\">\r\n        <li class=\"dropdown\">\r\n            <a href=\"#\" class=\"dropdown-toggle\" role=\"button\">Manage <span class=\"caret\"></span> </a>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">Save Data</a></li>\r\n                <li><a href=\"#\">Fetch Data</a></li>\r\n            </ul>\r\n        </li>\r\n    </ul>\r\n</div>\r\n</div>\r\n</nav>\r\n\r\n"
 
 /***/ }),
 
@@ -208,7 +208,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  recipe-detail works!\n</p>\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    <img src=\"\" alt=\"\" class=\"img-responsive \">\r\n </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    <h1>Recipe Name</h1>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    <div class=\"btn-group\">\r\n      <button\r\n        type=\"button\"\r\n        class=\"btn btn-primary dropdown-toggle\" >\r\n        Manage Recipe <span class=\"caret\"></span>\r\n      </button>\r\n      <ul class=\"dropdown-menu\">\r\n        <li><a href=\"#\">To SHopping List</a> </li>\r\n        <li><a href=\"#\">Edit Recipe</a> </li>\r\n        <li><a href=\"#\">Delete Recipe</a> </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    Description\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n   Ingredients\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -271,7 +271,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div class=\"row\">\n<div class=\"col-xs-12\">\n  <button class=\"btn btn-success\">New Recipes</button>\n</div>\n</div>\n\n<div class=\"row\">\n<div class=\"col-xs-12\">\n  <a href=\"#\" class=\"list-group-item clearfix\" *ngFor=\"let recipe of recipes\">\n  <div class=\"pull-left\">\n      <h4 class=\"list-group-item-heading\">{{ recipe.name }}/h4>\n      <p class=\"list-group-item-text\">{{recipe.description}}</p>  \n  </div>\n<span class=\"pull-right\">\n  <img src=\"{{recipe.imagePath}}\"  alt=\"{{recipe.name}}\" class=\"img-responsive\" style=\"max-height: 50px;\">\n</span>\n</a>\n<app-recipe-item></app-recipe-item>\n</div>\n</div>\n -->\n"
+module.exports = "<p>recipe Item works</p>"
 
 /***/ }),
 
@@ -334,7 +334,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-recipe-item></app-recipe-item>\n"
+module.exports = "<div class=\"row\">\r\n    <div class=\"col-xs-12\">\r\n      <button class=\"btn btn-success\">New Recipes</button>\r\n    </div>\r\n    </div>\r\n    <hr>\r\n    <div class=\"row\">\r\n    <div class=\"col-xs-12\">\r\n      <a \r\n      href=\"#\" \r\n      class=\"list-group-item clearfix\" \r\n      *ngFor=\"let recipe of recipes\">\r\n      <div class=\"pull-left\">\r\n          <h4 class=\"list-group-item-heading\">{{ recipe.name }}</h4>\r\n          <p class=\"list-group-item-text\">{{recipe.description}}</p>  \r\n      </div>\r\n    <span class=\"pull-right\">\r\n      <img [src]=\"recipe.imagePath\"  \r\n      alt=\"{{recipe.name}}\" \r\n      class=\"img-responsive\" \r\n      style=\"max-height: 50px;\">\r\n    </span>\r\n    </a>\r\n    <app-recipe-item></app-recipe-item>\r\n    </div>\r\n    </div>\r\n    \r\n    "
 
 /***/ }),
 
@@ -364,6 +364,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var RecipeListComponent = /** @class */ (function () {
     function RecipeListComponent() {
         this.recipes = [
+            new _recipe_model__WEBPACK_IMPORTED_MODULE_1__["Recipe"]('A Test Recipe', 'This Is simpele a list', 'http://hd.wallpaperswide.com/thumbs/danger_ahead-t2.jpg'),
             new _recipe_model__WEBPACK_IMPORTED_MODULE_1__["Recipe"]('A Test Recipe', 'This Is simpele a list', 'http://hd.wallpaperswide.com/thumbs/danger_ahead-t2.jpg')
         ];
     }
@@ -425,7 +426,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <app-recipe-list></app-recipe-list>\n  </div>\n<div class=\"col-md-7\">\n    <app-recipe-detail></app-recipe-detail>\n</div>\n\n</div>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-5\">\r\n    <app-recipe-list></app-recipe-list>\r\n  </div>\r\n<div class=\"col-md-7\">\r\n    <app-recipe-detail></app-recipe-detail>\r\n</div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -488,7 +489,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  shopping-edit works!\n</p>\n"
+module.exports = "<p>\r\n  shopping-edit works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -551,7 +552,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n<div class=\"col-xs-10\">\n<app-shopping-edit>\n</app-shopping-edit>\n<hr>\n<p>The List </p>\n\n</div>\n\n</div>"
+module.exports = "<div class=\"row\">\r\n<div class=\"col-xs-10\">\r\n<app-shopping-edit>\r\n</app-shopping-edit>\r\n<hr>\r\n<p>The List </p>\r\n\r\n</div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -656,7 +657,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/abrar/angularProjects/shoppingApp/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Abrar.Bhat\Documents\Angular Projects\Shoopping-App\src\main.ts */"./src/main.ts");
 
 
 /***/ })
