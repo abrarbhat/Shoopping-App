@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n\r\n      <app-recipes></app-recipes>\r\n      <app-shopping-list></app-shopping-list>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<app-header (featureSelected)=\"onNavigate($event)\"></app-header>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <app-recipes *ngIf=\"loadedFeature ==='recipe'\" ></app-recipes>\n      <app-shopping-list *ngIf=\"loadedFeature ==='shopping-list'\"></app-shopping-list>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -65,7 +65,11 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
+        this.loadedFeature = 'recipe';
     }
+    AppComponent.prototype.onNavigate = function (feature) {
+        this.loadedFeature = feature;
+    };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
@@ -152,7 +156,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\r\n<div class=\"container-fluid\">\r\n<div class=\"navbar-header\">\r\n    <a href=\"#\" class=\"navbar-brand\">Recipe Book</a>\r\n</div>\r\n<div class=\"collapse navbar-collapse\">\r\n    <ul class=\"nav navbar-nav\">\r\n        <li><a href=\"#\">Recipes</a></li>\r\n        <li><a href=\"#\">Shopping List</a></li>\r\n    </ul>\r\n    <ul class=\"nav navbar-nav navbar-right\">\r\n        <li class=\"dropdown\">\r\n            <a href=\"#\" class=\"dropdown-toggle\" role=\"button\">Manage <span class=\"caret\"></span> </a>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">Save Data</a></li>\r\n                <li><a href=\"#\">Fetch Data</a></li>\r\n            </ul>\r\n        </li>\r\n    </ul>\r\n</div>\r\n</div>\r\n</nav>\r\n\r\n"
+module.exports = "<nav class=\"navbar navbar-default\">\n<div class=\"container-fluid\">\n<div class=\"navbar-header\">\n    <a href=\"#\" class=\"navbar-brand\">Recipe Book</a>\n</div>\n<div class=\"collapse navbar-collapse\">\n    <ul class=\"nav navbar-nav\">\n        <li><a href=\"#\" (click)=\"onSelected('recipe')\">Recipes</a></li>\n        <li><a href=\"#\" (click)=\"onSelected('shopping-list')\">Shopping List</a></li>\n    </ul>\n    <ul class=\"nav navbar-nav navbar-right\">\n        <li class=\"dropdown\">\n            <a href=\"#\" class=\"dropdown-toggle\" role=\"button\">Manage <span class=\"caret\"></span> </a>\n            <ul class=\"dropdown-menu\">\n                <li><a href=\"#\">Save Data</a></li>\n                <li><a href=\"#\">Fetch Data</a></li>\n            </ul>\n        </li>\n    </ul>\n</div>\n</div>\n</nav>\n\n"
 
 /***/ }),
 
@@ -173,10 +177,21 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 var HeaderComponent = /** @class */ (function () {
     function HeaderComponent() {
+        this.featureSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
+    HeaderComponent.prototype.onSelected = function (feature) {
+        this.featureSelected.emit(feature);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], HeaderComponent.prototype, "featureSelected", void 0);
     HeaderComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-header',
@@ -208,7 +223,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    <img src=\"\" alt=\"\" class=\"img-responsive \">\r\n </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    <h1>Recipe Name</h1>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    <div class=\"btn-group\">\r\n      <button\r\n        type=\"button\"\r\n        class=\"btn btn-primary dropdown-toggle\" >\r\n        Manage Recipe <span class=\"caret\"></span>\r\n      </button>\r\n      <ul class=\"dropdown-menu\">\r\n        <li><a href=\"#\">To SHopping List</a> </li>\r\n        <li><a href=\"#\">Edit Recipe</a> </li>\r\n        <li><a href=\"#\">Delete Recipe</a> </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    Description\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n   Ingredients\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"row\">\n  <div class=\"col-xs-12\">\n    <img [src]=\"recipe.imagePath\" alt=\"{{}recipe.name}\" class=\"img-responsive \">\n </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-xs-12\">\n    <h1>{{recipe.name}}</h1>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-xs-12\">\n    <div class=\"btn-group\">\n      <button\n        type=\"button\"\n        class=\"btn btn-primary dropdown-toggle\" >\n        Manage Recipe <span class=\"caret\"></span>\n      </button>\n      <ul class=\"dropdown-menu\">\n        <li><a href=\"#\">To Shopping List</a> </li>\n        <li><a href=\"#\">Edit Recipe</a> </li>\n        <li><a href=\"#\">Delete Recipe</a> </li>\n      </ul>\n    </div>\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-xs-12\">\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-xs-12\">\n   Ingredients\n  </div>\n</div>"
 
 /***/ }),
 
@@ -223,6 +238,7 @@ module.exports = "<div class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    <img
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecipeDetailComponent", function() { return RecipeDetailComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _recipe_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../recipe.model */ "./src/app/recipes/recipe.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -233,11 +249,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var RecipeDetailComponent = /** @class */ (function () {
     function RecipeDetailComponent() {
     }
     RecipeDetailComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _recipe_model__WEBPACK_IMPORTED_MODULE_1__["Recipe"])
+    ], RecipeDetailComponent.prototype, "recipe", void 0);
     RecipeDetailComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-recipe-detail',
@@ -271,7 +292,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>recipe Item works</p>"
+module.exports = "<a \nhref=\"#\" \nclass=\"list-group-item clearfix\"\n(click)=\"onSelected()\">\n<div class=\"pull-left\">\n    <h4 class=\"list-group-item-heading\">{{ recipe.name }}</h4>\n    <p class=\"list-group-item-text\">{{recipe.description}}</p>  \n</div>\n<span class=\"pull-right\">\n<img [src]=\"recipe.imagePath\"  \nalt=\"{{recipe.name}}\" \nclass=\"img-responsive\" \nstyle=\"max-height: 50px;\">\n</span>\n</a>"
 
 /***/ }),
 
@@ -286,6 +307,7 @@ module.exports = "<p>recipe Item works</p>"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecipeItemComponent", function() { return RecipeItemComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _recipe_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../recipe.model */ "./src/app/recipes/recipe.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -296,11 +318,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var RecipeItemComponent = /** @class */ (function () {
     function RecipeItemComponent() {
+        this.recipeSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     RecipeItemComponent.prototype.ngOnInit = function () {
     };
+    RecipeItemComponent.prototype.onSelected = function () {
+        this.recipeSelected.emit();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _recipe_model__WEBPACK_IMPORTED_MODULE_1__["Recipe"])
+    ], RecipeItemComponent.prototype, "recipe", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], RecipeItemComponent.prototype, "recipeSelected", void 0);
     RecipeItemComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-recipe-item',
@@ -334,7 +369,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n    <div class=\"col-xs-12\">\r\n      <button class=\"btn btn-success\">New Recipes</button>\r\n    </div>\r\n    </div>\r\n    <hr>\r\n    <div class=\"row\">\r\n    <div class=\"col-xs-12\">\r\n      <a \r\n      href=\"#\" \r\n      class=\"list-group-item clearfix\" \r\n      *ngFor=\"let recipe of recipes\">\r\n      <div class=\"pull-left\">\r\n          <h4 class=\"list-group-item-heading\">{{ recipe.name }}</h4>\r\n          <p class=\"list-group-item-text\">{{recipe.description}}</p>  \r\n      </div>\r\n    <span class=\"pull-right\">\r\n      <img [src]=\"recipe.imagePath\"  \r\n      alt=\"{{recipe.name}}\" \r\n      class=\"img-responsive\" \r\n      style=\"max-height: 50px;\">\r\n    </span>\r\n    </a>\r\n    <app-recipe-item></app-recipe-item>\r\n    </div>\r\n    </div>\r\n    \r\n    "
+module.exports = "<div class=\"row\">\n    <div class=\"col-xs-12\">\n      <button class=\"btn btn-success\">New Recipes</button>\n    </div>\n    </div>\n    <hr>\n    <div class=\"row\">\n    <div class=\"col-xs-12\">\n   \n    <app-recipe-item \n    *ngFor=\"let recipeloop of recipes\"\n    [recipe]=\"recipeloop\"\n    (recipeSelected)=\"onRecipeSelected(recipeloop)\"></app-recipe-item>\n    </div>\n    </div>\n    \n    "
 
 /***/ }),
 
@@ -363,13 +398,26 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var RecipeListComponent = /** @class */ (function () {
     function RecipeListComponent() {
+        this.recipewasSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.recipes = [
-            new _recipe_model__WEBPACK_IMPORTED_MODULE_1__["Recipe"]('A Test Recipe', 'This Is simpele a list', 'http://hd.wallpaperswide.com/thumbs/danger_ahead-t2.jpg'),
-            new _recipe_model__WEBPACK_IMPORTED_MODULE_1__["Recipe"]('A Test Recipe', 'This Is simpele a list', 'http://hd.wallpaperswide.com/thumbs/danger_ahead-t2.jpg')
+            new _recipe_model__WEBPACK_IMPORTED_MODULE_1__["Recipe"]('A Test Recipe', 'This Is first simpele a list', 'http://hd.wallpaperswide.com/thumbs/danger_ahead-t2.jpg'),
+            new _recipe_model__WEBPACK_IMPORTED_MODULE_1__["Recipe"]('A Test Recipe', 'This Is second simpele a list', 'http://hd.wallpaperswide.com/thumbs/danger_ahead-t2.jpg')
         ];
+        this.recipeSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     RecipeListComponent.prototype.ngOnInit = function () {
     };
+    RecipeListComponent.prototype.onRecipeSelected = function (recipe) {
+        this.recipewasSelected.emit(recipe);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], RecipeListComponent.prototype, "recipewasSelected", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], RecipeListComponent.prototype, "recipeSelected", void 0);
     RecipeListComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-recipe-list',
@@ -426,7 +474,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-5\">\r\n    <app-recipe-list></app-recipe-list>\r\n  </div>\r\n<div class=\"col-md-7\">\r\n    <app-recipe-detail></app-recipe-detail>\r\n</div>\r\n\r\n</div>"
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <app-recipe-list \n    (recipewasSelected)=\"selectedRecipe= $event\"\n    ></app-recipe-list>\n  </div>\n<div class=\"col-md-7\">\n    <app-recipe-detail\n    *ngIf=\"selectedRecipe; else infoText\"\n    [recipe]=\"selectedRecipe\"\n    ></app-recipe-detail>\n    <ng-template #infoText>\n      <p>\n        please select a text\n      </p>\n    </ng-template>\n</div>\n\n</div>"
 
 /***/ }),
 
@@ -471,6 +519,28 @@ var RecipesComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shared/ingredient.model.ts":
+/*!********************************************!*\
+  !*** ./src/app/shared/ingredient.model.ts ***!
+  \********************************************/
+/*! exports provided: Ingredient */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Ingredient", function() { return Ingredient; });
+var Ingredient = /** @class */ (function () {
+    function Ingredient(name, amount) {
+        this.name = name;
+        this.amount = amount;
+    }
+    return Ingredient;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shopping-list/shopping-edit/shopping-edit.component.css":
 /*!*************************************************************************!*\
   !*** ./src/app/shopping-list/shopping-edit/shopping-edit.component.css ***!
@@ -489,7 +559,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  shopping-edit works!\r\n</p>\r\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col-xs-12\">\n    <form action=\"\">\n      <div class=\"row\">\n        <div class=\"col-sm-5 form-group\" >\n          <label for=\"name\">Name</label>\n          <input type=\"text\"  id=\"name\" class=\"form-control\">\n        </div>\n        <div class=\"col-sm-2 form-group\">\n          <label for=\"amount\">Amount</label>\n          <input type=\"number\" id=\"amount\" class=\"form-control\">\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-xs-12\">\n          <button class=\"btn btn-success\" type=\"submit\">Add</button>\n          <button class=\"btn btn-danger\" type=\"button\">Delete</button>\n          <button class=\"btn btn-primary\" type=\"button\">Clear</button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -552,7 +622,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n<div class=\"col-xs-10\">\r\n<app-shopping-edit>\r\n</app-shopping-edit>\r\n<hr>\r\n<p>The List </p>\r\n\r\n</div>\r\n\r\n</div>"
+module.exports = "<div class=\"row\">\n<div class=\"col-xs-10\">\n<app-shopping-edit>\n</app-shopping-edit>\n<hr>\n    <ul class=\"list-group\">\n      <a \n      class=\"list-group-item\" s\n      tyle=\"cursor :pointer\" \n      *ngFor=\"let ingredient of ingredients \"\n      >\n    {{ingredient.name}}\n    ({{ingredient.amount}})\n    </a>\n    </ul>\n</div>\n</div>"
 
 /***/ }),
 
@@ -567,6 +637,7 @@ module.exports = "<div class=\"row\">\r\n<div class=\"col-xs-10\">\r\n<app-shopp
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShoppingListComponent", function() { return ShoppingListComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_ingredient_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../shared/ingredient.model */ "./src/app/shared/ingredient.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -577,8 +648,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var ShoppingListComponent = /** @class */ (function () {
     function ShoppingListComponent() {
+        this.ingredients = [
+            new _shared_ingredient_model__WEBPACK_IMPORTED_MODULE_1__["Ingredient"]('Apples', 5),
+            new _shared_ingredient_model__WEBPACK_IMPORTED_MODULE_1__["Ingredient"]('Tomatoes', 10)
+        ];
     }
     ShoppingListComponent.prototype.ngOnInit = function () {
     };
@@ -657,7 +733,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Abrar.Bhat\Documents\Angular Projects\Shoopping-App\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/abrar/angularProjects/shoppingApp/src/main.ts */"./src/main.ts");
 
 
 /***/ })
