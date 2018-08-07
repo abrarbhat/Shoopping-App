@@ -9,6 +9,10 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { BasicHighlightDirective } from 'src/app/basic-highlight/basic-highligh.directive';
+import { BetterAttributeComponent } from './better-attribute/better-attribute.component';
+import { UnlessDirective } from './unless.directive';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
     ShoppingListComponent,
     ShoppingEditComponent,
     RecipeDetailComponent,
-    RecipeItemComponent
+    RecipeItemComponent,
+    BasicHighlightDirective,
+    BetterAttributeComponent,
+    UnlessDirective,
+    DropdownDirective
   ],
   imports: [
     BrowserModule
