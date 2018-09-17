@@ -1,0 +1,32 @@
+[2018-08-28 02:09:42.990] [exthost1] [info] extension host started
+[2018-08-28 02:09:43.042] [exthost1] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2018-08-28 02:09:43.042] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/emmet/out/extension
+[2018-08-28 02:09:43.263] [exthost1] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2018-08-28 02:09:43.263] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/git/out/main
+[2018-08-28 02:09:43.598] [exthost1] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2018-08-28 02:09:43.598] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/merge-conflict/out/extension
+[2018-08-28 02:09:43.620] [exthost1] [info] ExtensionService#_doActivateExtension vscode.search-rg {"startup":true,"activationEvent":"*"}
+[2018-08-28 02:09:43.620] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/search-rg/out/extension
+[2018-08-28 02:09:43.639] [exthost1] [info] eager extensions activated
+[2018-08-28 02:12:36.565] [exthost1] [info] extension host started
+[2018-08-28 02:12:36.622] [exthost1] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2018-08-28 02:12:36.622] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/emmet/out/extension
+[2018-08-28 02:12:36.764] [exthost1] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2018-08-28 02:12:36.764] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/git/out/main
+[2018-08-28 02:12:37.072] [exthost1] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2018-08-28 02:12:37.072] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/merge-conflict/out/extension
+[2018-08-28 02:12:37.090] [exthost1] [info] ExtensionService#_doActivateExtension vscode.search-rg {"startup":true,"activationEvent":"*"}
+[2018-08-28 02:12:37.090] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/search-rg/out/extension
+[2018-08-28 02:12:37.100] [exthost1] [info] eager extensions activated
+[2018-08-28 02:13:46.868] [exthost1] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"activationEvent":"onLanguage:typescript"}
+[2018-08-28 02:13:46.868] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/extension-editing/out/extension
+[2018-08-28 02:13:46.906] [exthost1] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features {"startup":false,"activationEvent":"onLanguage:typescript"}
+[2018-08-28 02:13:46.906] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/typescript-language-features/out/extension
+[2018-08-28 02:13:56.159] [exthost1] [info] ExtensionService#_doActivateExtension vscode.configuration-editing {"startup":false,"activationEvent":"onLanguage:jsonc"}
+[2018-08-28 02:13:56.159] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/configuration-editing/out/extension
+[2018-08-28 02:13:56.188] [exthost1] [info] ExtensionService#_doActivateExtension vscode.json-language-features {"startup":false,"activationEvent":"onLanguage:jsonc"}
+[2018-08-28 02:13:56.188] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/json-language-features/client/out/jsonMain
+[2018-08-28 02:28:52.371] [exthost1] [info] ExtensionService#_doActivateExtension vscode.html-language-features {"startup":false,"activationEvent":"onLanguage:html"}
+[2018-08-28 02:28:52.372] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/html-language-features/client/out/htmlMain
+[2018-08-28 02:29:29.143] [exthost1] [info] ExtensionService#_doActivateExtension vscode.css-language-features {"startup":false,"activationEvent":"onLanguage:css"}
+[2018-08-28 02:29:29.143] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/42/usr/share/code/resources/app/extensions/css-language-features/client/out/cssMain

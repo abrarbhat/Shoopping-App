@@ -1,0 +1,5 @@
+[2018-08-28 02:09:42.374] [renderer1] [info] no standard startup: not the explorer viewlet
+[2018-08-28 02:12:35.476] [renderer1] [info] no standard startup: not just one text editor
+[2018-08-28 02:12:44.966] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2018-08-28 02:13:47.498] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2018-08-28 02:28:52.754] [renderer1] [info] No grammar found for scope source.smarty
